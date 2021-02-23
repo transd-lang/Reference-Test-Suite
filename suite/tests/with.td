@@ -23,10 +23,6 @@ with: {
         (with b a (textout to ss b))
         (with b (+ a 1) (textout to ss b))
 
-        (if (eq check (str ss)) (set succ true) (+= oktests 1)
-        else (+= failtests 1))
-        (textout (if succ (if verbose " OK\n" else ".")
-            else String("\n  'with' FAILED: " ss "\n")
-            ))
+        (processRes "with" check (str ss))
     )
 }

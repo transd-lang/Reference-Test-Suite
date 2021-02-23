@@ -9,5 +9,14 @@
 public module tests : {
     verbose : true,
     oktests: 0,
-    failtests: 0
+    failtests: 0,
+    
+    processRes: (λ testName String() res String() check String()
+        (if (eq check res) 
+            (+= oktests 1)
+            (textout (if verbose " OK\n" else "."))
+        else 
+            (+= failtests 1)
+            (textout "\n" testName " FAILED: " res "\n")
+        ))
 }

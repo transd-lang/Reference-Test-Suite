@@ -4,7 +4,7 @@
 
 #lang transd
 
-Require : { searchDirs: [".."], packages: ["tests"] }
+Require : { searchDirs: ["../.."], packages: ["tests"] }
 
 /* 
 AssemblyDescription : {
@@ -22,10 +22,10 @@ sort: {
     _start: (λ 
         (if verbose (textout " Testing 'sort'..." ))
 
-        (sort vint) (textout to ss vint " ") 
-        (sort vint desc) (textout to ss vint " ") 
-        (sort vstr) (textout to ss vstr " ")
-        (sort vstr desc) (textout to ss vstr " ")
+        (textout to ss (sort vint) " ") 
+        (textout to ss (sort vint desc) " ") 
+        (textout to ss (sort vstr) " ")
+        (textout to ss (sort vstr desc) " ")
         (sort vstr (lambda l String() r String() -> Bool()
           (ret (less<String> (tolower l) (tolower r)))))
         (textout to ss vstr " ")

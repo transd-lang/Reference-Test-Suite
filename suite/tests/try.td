@@ -27,8 +27,8 @@ try : {
         (try 
             (textout to ss "before while; ")
             (with n 10
-                (while (< n 15) (+= n 1)
-                    (funcF n)
+                (while (< n 15) 
+                    (funcF n)(+= n 1)
                 )
             )
             (textout to ss "after while; ")
@@ -41,10 +41,6 @@ try : {
         
         (func1)
 
-        (if (eq check (str ss)) (set succ true) (+= oktests 1)
-        else (+= failtests 1))
-        (textout (if succ (if verbose " OK\n" else ".")
-            else String("\n  'try' FAILED: " ss "\n")
-            ))
+        (processRes "try" check (str ss))
     )
 }

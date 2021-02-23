@@ -26,11 +26,7 @@ fibo: {
 				(textout to ss (get v n) " ")
 			)
 
-            (if (eq check (str ss)) (set succ true) (+= oktests 1)
-            else (+= failtests 1))
-            (textout (if succ (if verbose " OK\n" else ".")
-                    else String("\n  'fibo' FAILED: " ss "\n")
-            ))
+            (processRes "fibo" check (str ss))
 		)
 	)
 }
