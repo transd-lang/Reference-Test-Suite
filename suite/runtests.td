@@ -32,6 +32,6 @@ MainModule : {
                         (eval String(modname "::_start")))))
         )
         (textout "Successful tests: " oktests "\n")
-        (textout "Failed tests: " failtests)
+        (textout "Failed tests: " failtests "\n")
     )
 }
