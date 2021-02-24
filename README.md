@@ -13,11 +13,13 @@ These tests can be run with the Transd interpreter called FREND (FRont END) or w
 3. Go to the directory with the "frend" binary. 
    On the command line type (replacing "PATH" with the full path to the tests directory):
   
-   `frend "<PATH>/runtests.td"`
+   `./frend "<PATH>/runtests.td"`
 
 In case tests have been successful, the output will look like this:
 
 ```
+$ ./frend "/home/transd/Tourbillon-test-suite/suite/runtests.td"
+
 Tests started:
  Testing 'eval'... OK
  Testing 'fibo'... OK
