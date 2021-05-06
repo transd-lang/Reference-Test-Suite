@@ -18,23 +18,23 @@ try : {
 
 	funcF: (lambda i Int() 
         (if (!= i 13) 
-            (textout to ss "OK " i "; ") 
+            (textout to: ss "OK " i "; ") 
         else 
             (throw "fail; "))),
 
 	func1: (lambda 
-        (textout to ss "before try; ")
+        (textout to: ss "before try; ")
         (try 
-            (textout to ss "before while; ")
+            (textout to: ss "before while; ")
             (with n 10
                 (while (< n 15) 
                     (funcF n)(+= n 1)
                 )
             )
-            (textout to ss "after while; ")
-            (catch (textout to ss (str @ex)))
+            (textout to: ss "after while; ")
+            (catch (textout to: ss (str @ex)))
         )
-        (textout to ss "after try.")
+        (textout to: ss "after try.")
     ),
 	_start: (lambda 
         (if verbose (textout " Testing 'try'..." ))

@@ -45,12 +45,14 @@ UT[D202, E39876, Claire Buckman, 27800]
     (with base TSDBase()
         (load-table base tbl)
         (build-index base "Department")
-        (with rows (tsd-query base select ["Department"] distinct sortby "Department")
+        (with rows (tsd-query base select: ["Department"]
+            as: [[String()]] :distinct sortby: "Department")
             (for row in rows do
-                (with recs (tsd-query base select all 
-    where (lambda Department String() (eq Department (get row 0))) 
-                    sortby "Salary" desc limit N)
-                (for rec in recs do (textout to ss rec "\n"))
+                (with recs (tsd-query base select: all 
+            as: [[String(), String(), Int(), String()]]
+    where: (lambda Department String() (eq Department (get row 0))) 
+                    sortby: "Salary" :desc limit: N)
+                (for rec in recs do (textout to: ss rec "\n"))
         )))
     )
     (processRes "tsdbase" check (str ss))

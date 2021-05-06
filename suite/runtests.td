@@ -18,18 +18,22 @@ MainModule : {
     patt:  ".*\\.td",
     _start: (λ 
         (textout "Tests started: \n")
-        (if (> @num_args 1) (set patt @1))
+        (if (> @num_args 1) (set patt @1) (textout "patt: " patt "\n"))
         (for d in dirs do
             (read dir d ".*") 
             (for d1 in (dirs dir) do
-                (if (not (match d1 ".*/\\.\\."))
+                (if (not (match d1 ".*/\\.\\.?"))
                     (add dirs d1)))
             (for f in (files dir) do
                 (if (match f patt)
                     (load-file f)
-                    (with modname (substr f from after last "/" to last ".")
+                    (with modname (substr f from: after: last: "/" to: last: ".")
                         (import-module modname)
-                        (eval String(modname "::_start")))))
+                        (if (not (eval String(modname "::_start")))
+                            (textout modname " FAILED!\n")
+                            (+= failtests 1)
+                        )
+            )))
         )
         (textout "Successful tests: " oktests "\n")
         (textout "Failed tests: " failtests "\n")

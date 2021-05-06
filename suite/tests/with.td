@@ -19,9 +19,9 @@ with: {
     _start: (λ 
         (if verbose (textout " Testing 'with'..." ))
 
-        (with b 1 (textout to ss b))
-        (with b a (textout to ss b))
-        (with b (+ a 1) (textout to ss b))
+        (with b 1 (textout to: ss b))
+        (with b a (textout to: ss b))
+        (with b (+ a 1) (textout to: ss b))
 
         (processRes "with" check (str ss))
     )

@@ -1,8 +1,7 @@
 /*This file is a part of Tourbillon compiler test suit.
 
-  TSDBase operations (Rosetta task "Top-rank per group").
-  Testing building database, creating index, table manipulations 
-    and TSD queries.
+  Rosetta task "Top-rank per group".
+  Tuple operations and working with tables.
 */
 #lang transd
 
@@ -37,30 +36,31 @@ UT[Rich Holcomb, E01234, 49500, D202]
 UT[Claire Buckman, E39876, 27800, D202]
 ",
     succ: false,
+    Record : typealias(Tuple<String String Int String>()),
     N: 2,
     curN: 0,
     dep: String(),
-    deps: Index( String() Int() ),
+    deps: Index<String Int>(),
     _start: (λ 
     (if verbose (textout " Testing 'uvector'..." ))
 
-    (with recs Vector( untypedTable tbl "," "\n" )
-          res Vector( UntypedVector() )
-        (sort recs desc 
-            (lambda l UntypedVector() r UntypedVector() -> Bool()
-                (ret (less<Int> (get l 2) (get r 2)))))
+    (with recs Vector<Record>( untypedTable tbl "," "\n" )
+          res Vector<Record>()
+        (sort recs Range(-1 0)
+            (lambda l Record() r Record() -> Bool()
+                (ret (less (get l 2) (get r 2)))))
 
-        (for rec in Range(recs do 
-                (lambda (= dep (get @it 3)) 
-                (= curN (snd (get-s deps dep 0)))
-                (if (< curN N) (add res @it) (set deps dep (+ curN 1))))
-             -> Null()) do null )
+        (for el in recs do 
+            (= dep (get el 3))
+            (= curN (snd (get-s deps dep 0)))
+            (if (< curN N) (add res el) (set deps dep (+ curN 1)))
+        )
 
-        (sort res asc 
-            (lambda l UntypedVector() r UntypedVector() -> Bool()
-                (ret (less<String> (get l 3) (get r 3)))))
+        (sort res 
+            (lambda l Record() r Record() -> Bool()
+                (ret (less (get l 3) (get r 3)))))
 
-        (for i in res do (textout to ss i "\n"))
+        (for i in res do (textout to: ss i "\n"))
 
     )
     (processRes "uvector" check (str ss))

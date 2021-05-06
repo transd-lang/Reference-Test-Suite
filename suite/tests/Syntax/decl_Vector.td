@@ -14,10 +14,10 @@ decl_Vector : {
         (if verbose (textout " Testing 'decl'..." ))
 
         (with res (eval "(with v Vector())")
-            (textout to ss res)
+            (textout to: ss res)
         )
-        (with res (eval "(with v Vector( Int() ))")
-            (textout to ss res)
+        (with res (eval "(with v Vector<Int>())")
+            (textout to: ss res)
         )
         (processRes "decl" check (str ss))
     )

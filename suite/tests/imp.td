@@ -8,6 +8,10 @@
 
 Require : { searchDirs: ["../res", '..'], packages: ["module1", "tests"] }
 
+AssemblyDescription : {
+    entryPoint : "imp::_start"
+}
+
 imp: {
     import: "tests",
     import: "module1",
