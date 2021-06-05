@@ -8,12 +8,7 @@
 
 Require : { searchDirs: ["../.."], packages: ["tests"] }
 
-/*
-AssemblyDescription : {
-    entryPoint : "vector::_start"
-}*/
-
-vector: {
+MainModule: {
     import: "tests",
     v: Vector<Int>(),
     a: 5,
@@ -27,10 +22,8 @@ vector: {
     func1: (λ (with v [a, 2, b]  (textout to: ss v))),
 
     _start: (λ 
-        (if verbose (textout " Testing 'vector'..." ))
-
-        (add v 1)
-        (add v 2)
+        (append v 1)
+        (append v 2)
 
         (textout to: ss v " ")
         (textout to: ss (func 1 2) " ")

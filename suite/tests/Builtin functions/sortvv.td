@@ -6,12 +6,7 @@
 
 Require : { searchDirs: ["../.."], packages: ["tests"] }
 
-/* 
-AssemblyDescription : {
-    entryPoint : "sortvv::_start"
-}*/
-
-sortvv: {
+MainModule: {
     import: "tests",
     Tpl : typealias(Tuple<Int String Int String>()),
     v: Vector<Tpl>(),
@@ -21,16 +16,14 @@ sortvv: {
     uv4 : [[2, "e", 4, "t"]],
     ss: StringStream(),
     check: 
-"[UT[1, c, 5, d], UT[2, e, 4, t], UT[3, h, 7, y], UT[6, a, 3, b]]
-[UT[6, a, 3, b], UT[3, h, 7, y], UT[2, e, 4, t], UT[1, c, 5, d]]
-[UT[6, a, 3, b], UT[1, c, 5, d], UT[2, e, 4, t], UT[3, h, 7, y]]
-[UT[3, h, 7, y], UT[2, e, 4, t], UT[1, c, 5, d], UT[6, a, 3, b]]",
+"[[[1, c, 5, d]], [[2, e, 4, t]], [[3, h, 7, y]], [[6, a, 3, b]]]
+[[[6, a, 3, b]], [[3, h, 7, y]], [[2, e, 4, t]], [[1, c, 5, d]]]
+[[[6, a, 3, b]], [[1, c, 5, d]], [[2, e, 4, t]], [[3, h, 7, y]]]
+[[[3, h, 7, y]], [[2, e, 4, t]], [[1, c, 5, d]], [[6, a, 3, b]]]",
     succ: false,
     
     _start: (λ 
-        (if verbose (textout " Testing 'sortvv'..." ))
-
-        (add v uv1)(add v uv2)(add v uv3)(add v uv4)
+        (append v uv1)(append v uv2)(append v uv3)(append v uv4)
         (sort v
             (lambda l Tpl() r Tpl() -> Bool()
                 (ret (less (get l 0) (get r 0)))))
@@ -48,6 +41,6 @@ sortvv: {
                 (ret (less (get l 3) (get r 3)))))
         (textout to: ss v)
 
-        (processRes "sortvv" check (str ss))
+        (processRes "sortvv" (str ss) check)
     )
 }

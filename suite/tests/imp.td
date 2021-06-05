@@ -8,19 +8,13 @@
 
 Require : { searchDirs: ["../res", '..'], packages: ["module1", "tests"] }
 
-AssemblyDescription : {
-    entryPoint : "imp::_start"
-}
-
-imp: {
+MainModule: {
     import: "tests",
     import: "module1",
     modname: "module2",
     succ: false,
     
     _start: (λ 
-        (if verbose (textout " Testing 'imp'..." ))
-
         (load-file String("res/" modname ".td"))
         (import-module modname)
         (= sharedInt 5)

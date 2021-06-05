@@ -6,9 +6,7 @@
 
 Require : { searchDirs: [".."], packages: ["tests"] }
 
-
-
-files : {
+MainModule : {
     import: "tests",
     dir: Directory(),
     tstdir: "../res/filestest",
@@ -21,15 +19,14 @@ res/filestest/dir2/file2.ext2
 ",
 
     _start: (λ 
-        (if verbose (textout " Testing 'files'..." ))
     (with rootdir (substr @sourceFile from: 0 to: after: last: "/")
         (set tstdir (+ rootdir tstdir)) 
-        (add dirs tstdir)
+        (append dirs tstdir)
         (for d in dirs do 
             (read dir d ".*") 
             (for d1 in (dirs dir) do
                 (if (not (match d1 ".*/\\.\\.?"))
-                    (add dirs d1)))
+                    (append dirs d1)))
             (for f in (files dir) do
                 (if (match f patt)
                     (with relname (substr f (rfind f "res"))
@@ -37,6 +34,6 @@ res/filestest/dir2/file2.ext2
             ))
         )
     )
-    (processRes "files" check (str ss))
+    (processRes "files" (str ss) check)
 )
 }

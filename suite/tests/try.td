@@ -6,11 +6,7 @@
 
 Require : { searchDirs: [".."], packages: ["tests"] }
 
-/*AssemblyDescription : {
-    entryPoint : "try::_start"
-}*/
-
-try : {
+MainModule : {
     import: "tests",
 	check: "before try; before while; OK 10; OK 11; OK 12; fail; after try.",
 	ss: StringStream(),
@@ -37,8 +33,6 @@ try : {
         (textout to: ss "after try.")
     ),
 	_start: (lambda 
-        (if verbose (textout " Testing 'try'..." ))
-        
         (func1)
 
         (processRes "try" check (str ss))

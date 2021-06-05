@@ -10,8 +10,11 @@
 
 Require : { searchDirs: ["."], packages: ["tests"] }
 
+AssemblyDescription : {
+    entryPoint : "RunTests::_start"
+}
 
-MainModule : {
+RunTests : {
     import: "tests",
     dir: Directory(),
     dirs: ["tests"],
@@ -23,16 +26,20 @@ MainModule : {
             (read dir d ".*") 
             (for d1 in (dirs dir) do
                 (if (not (match d1 ".*/\\.\\.?"))
-                    (add dirs d1)))
+                    (append dirs d1)))
             (for f in (files dir) do
                 (if (match f patt)
                     (load-file f)
-                    (with modname (substr f from: after: last: "/" to: last: ".")
+                    //(with modname (substr f from: after: last: "/" to: last: ".")
+                    (with modname "MainModule"
                         (import-module modname)
+                        (if verbose (textout " Testing " 
+                            (substr f from: after: "suite/tests/") ))
                         (if (not (eval String(modname "::_start")))
                             (textout modname " FAILED!\n")
                             (+= failtests 1)
                         )
+                        (unload-module modname)
             )))
         )
         (textout "Successful tests: " oktests "\n")

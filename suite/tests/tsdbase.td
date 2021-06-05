@@ -8,7 +8,7 @@
 
 Require : { searchDirs: [".."], packages: ["tests"] }
 
-tsdbase: {
+MainModule: {
     import: "tests",
     tbl : String( 
 `EmployeeName,@key_EmployeeID,Salary,Department
@@ -40,8 +40,6 @@ UT[D202, E39876, Claire Buckman, 27800]
     succ: false,
     N: 2,
     _start: (λ 
-    (if verbose (textout " Testing 'tsdbase'..." ))
-
     (with base TSDBase()
         (load-table base tbl)
         (build-index base "Department")
@@ -55,6 +53,6 @@ UT[D202, E39876, Claire Buckman, 27800]
                 (for rec in recs do (textout to: ss rec "\n"))
         )))
     )
-    (processRes "tsdbase" check (str ss))
+    (processRes "tsdbase" (str ss) check)
 )
 }

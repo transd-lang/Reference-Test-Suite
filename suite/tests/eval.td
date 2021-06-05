@@ -7,11 +7,8 @@
 
 Require : { searchDirs: [".."], packages: ["tests"] }
 
-/*AssemblyDescription : {
-    entryPoint : "eval::_start"
-}*/
 
-eval : {
+MainModule : {
     import: "tests",
     ss: StringStream(),
     check: "2",
@@ -19,8 +16,6 @@ eval : {
     str: "\\aaa\\bbb\\ccc\\ddd\\(textout to: ss (+ 1 .eee",
 
     _start: (λ 
-        (if verbose (textout " Testing 'eval'..." ))
-
         (with code (substr str from: after: last: "\\" to: last: ".")
             (eval String(code "1))")))
 

@@ -6,12 +6,7 @@
 
 Require : { searchDirs: ["../.."], packages: ["tests"] }
 
-/* 
-AssemblyDescription : {
-    entryPoint : "sort::_start"
-}*/
-
-sort: {
+MainModule: {
     import: "tests",
     vint: [43, 25, 127, 0, -43],
     vstr : ["ca", "ab", "aa", "Aa", "aBa", "aba", "bb", "bab", "BC", "Caa" ],
@@ -20,8 +15,6 @@ sort: {
     succ: false,
     
     _start: (λ 
-        (if verbose (textout " Testing 'sort'..." ))
-
         (textout to: ss (sort vint) " ") 
         (textout to: ss (sort vint Range(-1 0)) " ") 
         (textout to: ss (sort vstr) " ")
@@ -33,6 +26,6 @@ sort: {
           (ret (less (tolower l) (tolower r)))))
         (textout to: ss vstr)
 
-        (processRes "sort" check (str ss))
+        (processRes "sort" (str ss) check)
     )
 }
