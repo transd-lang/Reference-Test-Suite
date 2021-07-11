@@ -20,9 +20,12 @@ res/filestest/dir2/file2.ext2
 
     _start: (λ 
     (with rootdir (substr @sourceFile from: 0 to: after: last: "/")
+        cnt 0 d ""
         (set tstdir (+ rootdir tstdir)) 
         (append dirs tstdir)
-        (for d in dirs do 
+        //(for d in dirs do 
+        (while (< cnt (size dirs))
+            (set d (get dirs cnt))
             (read dir d ".*") 
             (for d1 in (dirs dir) do
                 (if (not (match d1 ".*/\\.\\.?"))
@@ -32,6 +35,7 @@ res/filestest/dir2/file2.ext2
                     (with relname (substr f (rfind f "res"))
                         (textout to: ss relname "\n"))
             ))
+            (+= cnt 1)
         )
     )
     (processRes "files" (str ss) check)

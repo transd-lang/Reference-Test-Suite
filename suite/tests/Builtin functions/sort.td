@@ -16,13 +16,13 @@ MainModule: {
     
     _start: (λ 
         (textout to: ss (sort vint) " ") 
-        (textout to: ss (sort vint Range(-1 0)) " ") 
+        (textout to: ss (sort Range(in: vint -0 0)) " ") 
         (textout to: ss (sort vstr) " ")
-        (textout to: ss (sort vstr Range(-1 0)) " ")
+        (textout to: ss (sort Range(in: vstr -0 0)) " ")
         (sort vstr (lambda l String() r String() -> Bool()
           (ret (less (tolower l) (tolower r)))))
         (textout to: ss vstr " ")
-        (sort vstr Range(-1 0) (lambda l String() r String() -> Bool()
+        (sort Range(in: vstr -0 0) (lambda l String() r String() -> Bool()
           (ret (less (tolower l) (tolower r)))))
         (textout to: ss vstr)
 

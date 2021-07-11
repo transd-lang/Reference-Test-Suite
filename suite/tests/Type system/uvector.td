@@ -45,13 +45,13 @@ MainModule: {
     //(with recs Vector<Record>( :untypedTable tbl "," "\n" )
     (with recs Vector<Record>() res Vector<Record>()
         (load-table recs :untypedTable tbl "," "\n" )
-        (sort recs Range(-1 0)
+        (sort Range(in: recs -1 0)
             (lambda l Record() r Record() -> Bool()
                 (ret (less (get l 2) (get r 2)))))
 
         (for el in recs do 
             (= dep (get el 3))
-            (= curN (snd (get-s deps dep 0)))
+            (= curN (snd (get-val deps dep 0)))
             (if (< curN N) (append res el) (set deps dep (+ curN 1)))
         )
 

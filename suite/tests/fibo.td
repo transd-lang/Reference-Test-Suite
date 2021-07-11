@@ -1,7 +1,13 @@
 /*This file is a part of Tourbillon compiler test suit.
 
   Generating the Fibonacci sequence.
-  Testing Ŕange, 'for', 'with'.
+
+Test's script:
+
+    1. In a 'for' loop the 'v' vector is filled with Fibonacci numbers;
+    2. In another loop The contents of 'v' vector are printed to the 'ss'
+       stream.
+
 */
 
 #lang transd

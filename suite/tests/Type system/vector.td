@@ -29,6 +29,6 @@ MainModule: {
         (textout to: ss (func 1 2) " ")
         (func1) 
 
-        (processRes "vector" check (str ss))
+        (processRes "vector" (str ss) check)
     )
 }

@@ -15,6 +15,6 @@ MainModule: {
     _start: (λ 
         (textout to: ss String("test " "string"))
 
-        (processRes "string" check (str ss))
+        (processRes "string" (str ss) check)
     )
 }

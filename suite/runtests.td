@@ -19,10 +19,14 @@ RunTests : {
     dir: Directory(),
     dirs: ["tests"],
     patt:  ".*\\.td",
+    cnt: 0,
+    d: "",
     _start: (λ 
         (textout "Tests started: \n")
         (if (> @num_args 1) (set patt @1) (textout "patt: " patt "\n"))
-        (for d in dirs do
+        //(for d in dirs do
+        (while (< cnt (size dirs))
+            (set d (get dirs cnt))
             (read dir d ".*") 
             (for d1 in (dirs dir) do
                 (if (not (match d1 ".*/\\.\\.?"))
@@ -41,6 +45,7 @@ RunTests : {
                         )
                         (unload-module modname)
             )))
+            (+= cnt 1)
         )
         (textout "Successful tests: " oktests "\n")
         (textout "Failed tests: " failtests "\n")
