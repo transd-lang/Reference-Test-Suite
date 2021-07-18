@@ -18,11 +18,9 @@ MainModule: {
     _start: (λ 
         (for i in Filter( Seq( (+ a 2) (- 30 b ) )
                           apply: (lambda (* @it 2))) do
-//(textout i " "))
             (textout to: ss i " "))
         (with f Filter( Seq( 0 5 ) apply: (lambda
                 (ret @it)))
-//(textout (to-vector f))
             (textout to: ss (to-vector f))
         )
         (processRes "filter" (str ss) check)

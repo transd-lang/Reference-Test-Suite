@@ -36,7 +36,7 @@ MainModule: {
     (with v Vector<Long>()
             (set v (poly 12))
             (textout to: ss "(x - 1)^" 12 " = ")
-            (for i in v do (textout to: ss :sign i "x^" @idx " "))
+            (for i in v do (textout to: ss :sign i "x^" :nosign @idx " "))
             (textout to: ss "\n")
         (for p in Seq( 2 62 ) do
             (if (aks_test p) (textout to: ss p " "))
