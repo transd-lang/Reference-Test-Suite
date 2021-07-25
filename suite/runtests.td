@@ -23,7 +23,8 @@ RunTests : {
     d: "",
     _start: (λ 
         (textout "Tests started: \n")
-        (if (> @num_args 1) (set patt @1) (textout "patt: " patt "\n"))
+        //(if (> @num_args 1) (set patt @1) (textout "patt: " patt "\n"))
+        (if (> @numArgs 1) (set patt (get @progArgs 0)) (textout "patt: " patt "\n"))
         //(for d in dirs do
         (while (< cnt (size dirs))
             (set d (get dirs cnt))

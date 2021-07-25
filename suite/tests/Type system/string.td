@@ -10,7 +10,6 @@ MainModule: {
     import: "tests",
     ss: StringStream(),
     check: "test string",
-    succ: false,
     
     _start: (λ 
         (textout to: ss String("test " "string"))

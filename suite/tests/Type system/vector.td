@@ -24,7 +24,6 @@ MainModule: {
     _start: (λ 
         (append v 1)
         (append v 2)
-
         (textout to: ss v " ")
         (textout to: ss (func 1 2) " ")
         (func1) 
