@@ -52,7 +52,7 @@ MainModule: {
         (for el in recs do 
             (= dep (get el 3))
             (= curN (snd (get-val deps dep 0)))
-            (if (< curN N) (append res el) (set deps dep (+ curN 1)))
+            (if (< curN N) (append res el) (set-el deps dep (+ curN 1)))
         )
 
         (sort res 
