@@ -12,7 +12,7 @@ class Inner: {
 
     prep: (λ objs Index<String Vector<Object>>()
     ),
-    work: (λ (textout to: ss vec))
+    work: (λ i Int() (textout to: ss vec " " this.name " " ) (= i 5))
 }
 
 class Outer : {
@@ -24,14 +24,16 @@ class Outer : {
 //(textout "Outer::prep(): " (diag innObj))
         (prep innObj objs)
     ),
-    work: (λ (work innObj))
+    work: (λ i Int() (work innObj i))
 }
 
 MainModule: {
 import: "tests",
+import: "Outer",
 objFile: "../../res/objfile.tsd",
 ss: StringStream(),
-check: "[abc, cde]",
+i: Int(0),
+check: "[abc, cde] inn1 5",
 
 outName: "out1",
 outObj: Outer(),
@@ -42,16 +44,14 @@ _start: (λ
             (= objFile (+ rootdir objFile))
     )
 
-//(textout "_start(): outObj 1:" (diag outObj))
-//(textout "_start(): innObj 1:" (diag outObj.innObj))
-
     (rebind objs (group-by 
                 (read-tsd-file objFile) 
                 (λ ob Object() -> String() 
                     (get-String ob "name"))))
     (load-from-object outObj (get (snd (get objs outName)) 0))
     (prep outObj objs)
-    (work outObj)
+    (work outObj i)
+    (textout to: outObj.innObj.ss i)
     (processRes "tsd_objects" (str outObj.innObj.ss) check)
 )
 }
