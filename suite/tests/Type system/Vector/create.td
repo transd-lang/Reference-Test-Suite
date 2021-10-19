@@ -6,7 +6,7 @@
 */
 #lang transd
 
-Require : { searchDirs: ["../.."], packages: ["tests"] }
+Require : { searchDirs: ["../../.."], packages: ["tests"] }
 
 MainModule: {
     import: "tests",

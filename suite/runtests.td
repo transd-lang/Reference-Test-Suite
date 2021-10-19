@@ -24,7 +24,7 @@ RunTests : {
     _start: (λ 
         (textout "Tests started: \n")
         //(if (> @num_args 1) (set patt @1) (textout "patt: " patt "\n"))
-        (if (> @numArgs 1) (set patt (get @progArgs 0)) (textout "patt: " patt "\n"))
+        (if (> @numArgs 1) (set patt (get @progArgs 1)) (textout "patt: " patt "\n"))
         //(for d in dirs do
         (while (< cnt (size dirs))
             (set d (get dirs cnt))
@@ -40,7 +40,7 @@ RunTests : {
                         (import-module modname)
                         (if verbose (textout " Testing " 
                             (substr f from: after: "suite/tests/") ))
-                        (if (not (eval String(modname "::_start")))
+                        (if (not (fst (eval String(modname "::_start"))))
                             (textout modname " FAILED!\n")
                             (+= failtests 1)
                         )

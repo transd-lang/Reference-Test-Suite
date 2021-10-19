@@ -42,9 +42,9 @@ MainModule: {
     dep: String(),
     deps: Index<String Int>(),
     _start: (λ 
-    //(with recs Vector<Record>( :untypedTable tbl "," "\n" )
+    //(with recs Vector<Record>( :mixedTypes tbl "," "\n" )
     (with recs Vector<Record>() res Vector<Record>()
-        (load-table recs :untypedTable tbl "," "\n" )
+        (load-table recs tbl :mixedTypes fieldSep: "," rowSep: "\n" )
         (sort Range(in: recs -1 0)
             (lambda l Record() r Record() -> Bool()
                 (ret (less (get l 2) (get r 2)))))

@@ -22,7 +22,7 @@ MainModule : {
     a: 1,
     b: 2,
 	_start: (λ 
-        (with res (eval "(with v Vector())")
+        (with res (fst (eval "(with v Vector())"))
             (textout to: ss res "\n")
         )
         (append v1 1) (append v1 2) (append v1 3)

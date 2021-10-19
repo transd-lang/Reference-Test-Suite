@@ -44,7 +44,7 @@ UT[D202, E39876, Claire Buckman, 27800]
         (load-table base tbl)
         (build-index base "Department")
         (with rows (tsd-query base select: ["Department"]
-            as: [[String()]] :distinct sortby: "Department")
+            as: [[String()]] where: (λ Department String() true) :distinct sortby: "Department")
             (for row in rows do
                 (with recs (tsd-query base select: all 
             as: [[String(), String(), Int(), String()]]
