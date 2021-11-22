@@ -2,9 +2,9 @@
  
    This file is a driver of the testing process.
    To start tests, run this file with a program containing Tourbillon
-   virtual compiler, e.g. frend:
+   virtual compiler, e.g. TREE3:
    
-   $ frend runtests.td
+   $ tree3 runtests.td
  */
 #lang transd
 
