@@ -1,6 +1,19 @@
-/*
- * Performance test: loading a table with 100,000 rows and
- * performing a data query on it.
+/* Transd Programming Language
+ * ---------------------------
+ *
+ * Performance benchmark 
+ *
+ * Data query on a Table
+ *
+ * 1. Read a file with tabular data into 'tabstr:String'
+ *    object.
+ * 2. Initialize the 'tabl:Table' object with the data
+ *    from 'tabstr'.
+ * 3. Build indexes on the columns which will be used
+ *    as the selection attributes in a SELECT query.
+ * 4. Perform a SELECT query on the table, and save the
+ *    results to 'rows:Vector<Tuple...>'  object.
+ * 5. Print the query results to the screen.
  */
 #lang transd
 
