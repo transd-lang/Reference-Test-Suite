@@ -15,7 +15,6 @@ MainModule: {
     b: 6,
     ss: StringStream(),
     check: "[1, 2] [1, 2] [5, 2, 6]",
-    succ: false,
     
 	func: (λ a Int() b Int() -> Vector<Int>() (ret [a, b])),
 

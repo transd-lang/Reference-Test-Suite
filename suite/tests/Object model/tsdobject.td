@@ -43,7 +43,6 @@ _start: (λ
     (with rootdir (substr @sourceFile from: 0 to: after: last: "/")
             (= objFile (+ rootdir objFile))
     )
-
     (rebind objs (group-by 
                 (read-tsd-file objFile) 
                 (λ ob Object() -> String() 

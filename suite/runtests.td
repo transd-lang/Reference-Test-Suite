@@ -2,9 +2,9 @@
  
    This file is a driver of the testing process.
    To start tests, run this file with a program containing Tourbillon
-   virtual compiler, e.g. TREE3:
+   virtual compiler, e.g. frend:
    
-   $ tree3 runtests.td
+   $ frend runtests.td
  */
 #lang transd
 
@@ -23,9 +23,7 @@ RunTests : {
     d: "",
     _start: (λ 
         (textout "Tests started: \n")
-        //(if (> @num_args 1) (set patt @1) (textout "patt: " patt "\n"))
         (if (> @numArgs 1) (set patt (get @progArgs 1)) (textout "patt: " patt "\n"))
-        //(for d in dirs do
         (while (< cnt (size dirs))
             (set d (get dirs cnt))
             (read dir d ".*") 
@@ -35,7 +33,6 @@ RunTests : {
             (for f in (files dir) do
                 (if (match f patt)
                     (load-file f)
-                    //(with modname (substr f from: after: last: "/" to: last: ".")
                     (with modname "MainModule"
                         (import-module modname)
                         (if verbose (textout " Testing " 
@@ -44,7 +41,6 @@ RunTests : {
                             (textout modname " FAILED!\n")
                             (+= failtests 1)
                         )
-                        //(unload-module modname)
                         (unload-file-modules f)
             )))
             (+= cnt 1)

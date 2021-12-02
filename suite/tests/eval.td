@@ -17,7 +17,6 @@ MainModule : {
     import: "tests",
     ss: StringStream(),
     check: "2",
-    succ: false,
     str: "\\aaa\\bbb\\ccc\\ddd\\(textout to: ss (+ 1 .eee",
 
     _start: (λ 

@@ -30,6 +30,9 @@ UT[86, Rn, Radon]
     tabstr: "",
 
     _start: (λ 
+        (with rootdir (substr @sourceFile from: 0 to: after: last: "/")
+            (= tabfile String( rootdir tabfile)))
+
         (with fs FileStream()
             (open fs tabfile) (textin tabstr fs)
         )
