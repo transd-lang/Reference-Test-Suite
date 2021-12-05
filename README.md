@@ -20,20 +20,17 @@ In case the tests are successful, the output will look like this:
 ```
 $ ./tree3 "/home/transd/Tourbillon-test-suite/suite/runtests.td"
 
+Tests started: 
+ Testing eval.td........................................... OK
+ Testing fibo.td........................................... OK
+ Testing files.td.......................................... OK
+ Testing imp.td............................................ OK
 
-Tests started:
- Testing eval.td OK
- Testing fibo.td OK
- Testing files.td OK
- Testing imp.td OK
- Testing tsdbase.td OK
- ...
- //  more output...
- ...
- Testing Type system/Containers/findAdjacent.td OK
- Testing Type system/Containers/reverse.td OK
- Testing Type system/Simple/byte.td OK
- Testing Type system/Simple/long.td OK
- Testing Type system/Streams/fs_readline.td OK
-Successful tests: 43
+  // -- More output... --//
+
+ Testing Type system/String/string.td...................... OK
+ Testing Type system/Vector/create.td...................... OK
+ Testing Type system/Vector/matrices.td.................... OK
+ Testing Type system/Vector/meths.td....................... OK
+Successful tests: 47
 Failed tests: 0
