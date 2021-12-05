@@ -2,9 +2,9 @@
  
    This file is a driver of the testing process.
    To start tests, run this file with a program containing Tourbillon
-   virtual compiler, e.g. frend:
+   virtual compiler, e.g. TREE3:
    
-   $ frend runtests.td
+   $ tree3 runtests.td
  */
 #lang transd
 
@@ -36,6 +36,7 @@ RunTests : {
                     (with modname "MainModule"
                         (import-module modname)
                         (if verbose (textout " Testing " 
+                            width: 50 fill: "." :left                    
                             (substr f from: after: "suite/tests/") ))
                         (if (not (fst (eval String(modname "::_start"))))
                             (textout modname " FAILED!\n")
