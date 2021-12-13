@@ -17,6 +17,6 @@ MainModule: {
         (with b a (textout to: ss b))
         (with b (+ a 1) (textout to: ss b))
 
-        (processRes "with" check (str ss))
+        (processRes "with" (str ss) check)
     )
 }

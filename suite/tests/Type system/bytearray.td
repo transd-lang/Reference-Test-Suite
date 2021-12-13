@@ -38,7 +38,7 @@ MainModule: {
         //-- (reverse)
         (tst-reverse arr)
         (tst-reverse ByteArray(Range(in: arr 1 -1)))
-        (textout to: ss (fst (eval "(reverse Range(in: arr 2 -2))")) " ")
+        (textout to: ss :boolalpha (fst (eval "(reverse Range(in: arr 2 -2))")) " ")
         (textout to: ss (fst (eval "(reverse Range(in: arr1 2 -2))")) " ")
         (lout to: ss "")
 

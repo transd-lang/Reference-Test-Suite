@@ -51,7 +51,8 @@ a b cd а б вг A b Cd А б Вг A B CD А Б ВГ",
         //-- (reverse)
         (tst-reverse s)
         (tst-reverse String(Range(in: s 2 -2)))
-        (textout to: ss (fst (eval "(reverse Range(in: s 2 -2))")) " ")
+        (textout to: ss :boolalpha 
+                    (fst (eval "(reverse Range(in: s 2 -2))")) " ")
         (lout to: ss "")
 
         //-- (sort)

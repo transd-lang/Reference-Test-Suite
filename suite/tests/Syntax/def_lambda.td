@@ -26,7 +26,7 @@ MainModule : {
         (textout to: ss (func5) " ")
         (textout to: ss (func6 7) " ")
         (with res (fst (eval "(λ )"))
-            (textout to: ss res " "))
+            (textout to: ss :boolalpha res " "))
         (with res (fst (eval "(λ p String() (ret p))"))
             (textout to: ss res))
         (processRes "def_lambda" (str ss) check)

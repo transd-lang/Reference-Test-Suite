@@ -23,7 +23,7 @@ MainModule : {
     b: 2,
 	_start: (λ 
         (with res (fst (eval "(with v Vector())"))
-            (textout to: ss res "\n")
+            (textout to: ss :boolalpha res "\n")
         )
         (append v1 1) (append v1 2) (append v1 3)
         (set-el v2 0 1)(set-el v2 1 2)(set-el v2 2 3)

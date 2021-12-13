@@ -35,6 +35,6 @@ MainModule : {
 	_start: (lambda 
         (func1)
 
-        (processRes "try" check (str ss))
+        (processRes "try" (str ss) check)
     )
 }

@@ -15,8 +15,8 @@ b2: Bool(true),
 s1: "false",
 
 _start: (λ 
-(with b3 true b4 Bool(false) b5 Bool(s1) (textout to: ss b1 " " b2 " "
-   b3 " " b4 " " b5))
+(with b3 true b4 Bool(false) b5 Bool(s1) (textout to: ss :boolalpha 
+    b1 " " b2 " "  b3 " " b4 " " b5))
     (processRes "simple" (str ss) check)
 )
 }

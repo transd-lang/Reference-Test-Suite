@@ -34,8 +34,8 @@ true false 3
     tst-back: (λ const par Vector<Int>() 
                 (textout to: ss (front par) " " (back par)  " ")
                 (with v Vector<Int>()
-                    (textout to: ss (fst (eval "(front v)")) " " 
-                        (fst (eval "(back v)"))
+                    (textout to: ss :boolalpha 
+                        (fst (eval "(front v)")) " " (fst (eval "(back v)"))
     ))),
 
     tst-find-adjacent: (λ const par Vector<Int>()

@@ -27,37 +27,23 @@ Require : { searchDirs: ["../../.."], packages: ["tests"] }
 
 MainModule : {
     import: "tests",
-    fs: FileStream(),
-    fname: "fs_readline.txt",
-    s: "ABC\ndef\nghi",
     ss: StringStream(),
     check: 
-"[65, 66, 67, 10, 100, 101, 102, 10, 103, 104, 105]
-ABC
-def
-ghi
-[ABC, def, ghi]",
+"Fried chicken.......3.70 USD
+Ice-cream...........1.50 USD
+----------------------------
+             Total: 5.20 USD
+",
 
 	_start: (λ 
-    (with dir (substr @sourceFile from: 0 to: after: last: "/")
-        (open fs (+ dir "/" fname) "w")
-        (write fs (to-bytes s) (size s))
-        (close fs)
-        (open fs (+ dir "/" fname))
-        //(textout to: ss (read-lines fs) "\n")
-        (with barr ByteArray()
-            (read-bytes fs barr)
-            (textout to: ss barr "\n")
+        (with pr1 3.7 pr2 1.5
+            (lout to: ss width: 20 fill: "." :left "Fried chicken" 
+                     prec: 2 :fixed pr1 " USD" )
+            (lout to: ss width: 20 "Ice-cream" pr2 " USD" )
+            (lout to: ss width: 28 fill: "-" )
+            (lout to: ss width: 20 fill: " " :right "Total: " (+ pr1 pr2) " USD" )
         )
-        (rewind fs)
-        (with str String()
-            (while (getline str fs)
-                (textout to: ss str "\n"))
-            (rewind fs)
-            (textin from: fs str)
-            (textout to: ss (split str))
-        )
-    )
-    (processRes "fs_readline" (str ss) check)
+
+        (processRes "ss_format" (str ss) check)
     )
 }
