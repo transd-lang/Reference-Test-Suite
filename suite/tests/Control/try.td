@@ -10,7 +10,6 @@ MainModule : {
     import: "tests",
 	check: "before try; before while; OK 10; OK 11; OK 12; fail; after try.",
 	ss: StringStream(),
-    succ: false,
 
 	funcF: (lambda i Int() 
         (if (!= i 13) 

@@ -7,7 +7,6 @@ Test's script:
     1. In a 'for' loop the 'v' vector is filled with Fibonacci numbers;
     2. In another loop The contents of 'v' vector are printed to the 'ss'
        stream.
-
 */
 
 #lang transd
@@ -18,7 +17,6 @@ MainModule: {
     import: "tests",
 	v: Vector<Int>(30),
 	check: "1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 ",
-    succ: false,
 
 	_start: 
 	(λ 	(set-el v 0 1) (set-el v 1 1)

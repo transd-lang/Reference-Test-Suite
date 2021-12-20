@@ -11,7 +11,8 @@ public module tests : {
     oktests: 0,
     failtests: 0,
     
-    processRes: (λ testName String() res String() check String()
+    processRes: (λ const testName String() const res String() 
+                    const check String()
         (if (eq check res) 
             (+= oktests 1)
             (textout (if verbose " OK\n" else "."))
