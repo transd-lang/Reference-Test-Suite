@@ -1,0 +1,23 @@
+/*This file is a part of Tourbillon compiler test suit.
+
+  Test of restrictions..
+*/
+#lang transd
+
+
+AssemblyDescription: {
+    restrictions: {
+        FileRead: noExecute
+    }
+}
+
+MainModule: {
+    _start: (λ 
+        (with fs FileStream() s String()
+            (try
+                (open-r fs @sourceFile)
+                (ret (substr (read-text fs) to: " "))
+            (catch (ret (substr (str @ex) from: "current" ))))
+        )
+    )
+}

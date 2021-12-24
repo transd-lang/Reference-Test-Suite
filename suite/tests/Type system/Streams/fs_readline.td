@@ -40,10 +40,10 @@ ghi
 
 	_start: (λ 
     (with dir (substr @sourceFile from: 0 to: after: last: "/")
-        (open fs (+ dir "/" fname) "w")
+        (open-w fs (+ dir "/" fname) "w")
         (write fs (to-bytes s) (size s))
         (close fs)
-        (open fs (+ dir "/" fname))
+        (open-r fs (+ dir "/" fname))
         //(textout to: ss (read-lines fs) "\n")
         (with barr ByteArray()
             (read-bytes fs barr)

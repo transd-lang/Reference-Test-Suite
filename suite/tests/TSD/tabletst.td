@@ -34,7 +34,7 @@ UT[86, Rn, Radon]
             (= tabfile String( rootdir tabfile)))
 
         (with fs FileStream()
-            (open fs tabfile) (textin from: fs tabstr)
+            (open-r fs tabfile) (textin from: fs tabstr)
         )
         (with tabl Table()
             (load-table tabl tabstr)

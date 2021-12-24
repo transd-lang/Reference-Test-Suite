@@ -6,7 +6,7 @@
 
 #lang transd
 
-Require : { searchDirs: ["../res", '..'], packages: ["module1", "tests"] }
+Require : { searchDirs: ["../../res", '../..'], packages: ["module1", "tests"] }
 
 MainModule: {
     import: "tests",
@@ -17,7 +17,7 @@ MainModule: {
     
     _start: (λ 
         (with rootdir (substr @sourceFile from: 0 to: after: last: "/")
-            (load-file String( rootdir "../res/" modname ".td")))
+            (load-file String( rootdir "../../res/" modname ".td")))
         (import-module modname)
         (= sharedInt 5)
         (eval String(modname "::_start"))
