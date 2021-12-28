@@ -40,7 +40,7 @@ UT[Claire Buckman, E39876, 27800, D202]
     N: 2,
 
 	_start: (λ (with tabl Table()
-		(load-table tabl tbl)
+		(load-table tabl tbl :firstRowColNames)
         (build-index tabl "Department")
 		(with rows (tsd-query tabl select: ["Department"] 
             as: [[String()]] :distinct sortby: "Department" )

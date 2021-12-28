@@ -37,7 +37,7 @@ UT[86, Rn, Radon]
             (open-r fs tabfile) (textin from: fs tabstr)
         )
         (with tabl Table()
-            (load-table tabl tabstr)
+            (load-table tabl tabstr :firstRowColNames)
             (build-index tabl "Atomic number")
             (build-index tabl "Phase at r.t.")
 

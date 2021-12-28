@@ -1,10 +1,23 @@
 /* This file is a part of Tourbillon compiler test suite.
  
-   This file is a driver of the testing process.
+   The program in this file is a driver of the testing process.
+   It iterates over test files in subdirectories and successively
+   runs them.
+   
    To start tests, run this file with a program containing Tourbillon
    virtual compiler, e.g. TREE3:
    
    $ tree3 runtests.td
+
+   A regex pattern, specifying a subset of test files to run, can be
+   added to the program call:
+
+   $ tree3 runtests.td -args <PATTERN>
+
+   For example, the following command will only run tests from the 
+   "TSD" subdirectory:
+
+   $ tree3 runtests.td -args .*/TSD/.*\.td
  */
 #lang transd
 
