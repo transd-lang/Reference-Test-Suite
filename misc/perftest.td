@@ -27,10 +27,10 @@ MainModule: {
         (lout "Loading database...")
         (set-now dt)
         (with fs FileStream()
-            (open fs tabfile) (textin tabstr fs)
+            (open-r fs tabfile) (textin from: fs tabstr)
         )
         (with tabl Table()
-            (load-table tabl tabstr)
+            (load-table tabl tabstr :firstRowColNames)
             (lout (now-delta dt) " sec. elapsed")
             (lout "Building indexes...")
             (set-now dt)
@@ -41,7 +41,7 @@ MainModule: {
             (lout "Perfoming query...")
             (set-now dt)
 
-            (with rows (tsd-query tabl 
+            (with rows (tsd tabl 
                     select: ["Name Prefix", "First Name", "Last Name",
                              "Age in Company (Years)", "Salary"]
                     as: [[String(),String(),String(),Double(),Int()]]
