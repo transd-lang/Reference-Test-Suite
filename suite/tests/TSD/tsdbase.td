@@ -28,24 +28,24 @@ Timothy Grove,	E16398,29900,D190`),
 
     ss: StringStream(),
     check: 
-"UT[John Rappl, E21437, 47000, D050]
-UT[Nathan Adams, E41298, 21900, D050]
-UT[George Woltman, E00127, 53500, D101]
-UT[David McClellan, E04242, 41500, D101]
-UT[Kim Arlich, E10001, 57000, D190]
-UT[Timothy Grove, E16398, 29900, D190]
-UT[Rich Holcomb, E01234, 49500, D202]
-UT[Claire Buckman, E39876, 27800, D202]
+"[\"John Rappl\", \"E21437\", 47000, \"D050\"]
+[\"Nathan Adams\", \"E41298\", 21900, \"D050\"]
+[\"George Woltman\", \"E00127\", 53500, \"D101\"]
+[\"David McClellan\", \"E04242\", 41500, \"D101\"]
+[\"Kim Arlich\", \"E10001\", 57000, \"D190\"]
+[\"Timothy Grove\", \"E16398\", 29900, \"D190\"]
+[\"Rich Holcomb\", \"E01234\", 49500, \"D202\"]
+[\"Claire Buckman\", \"E39876\", 27800, \"D202\"]
 ",
     N: 2,
 
 	_start: (λ (with tabl Table()
 		(load-table tabl tbl :firstRowColNames)
         (build-index tabl "Department")
-		(with rows (tsd-query tabl select: ["Department"] 
+		(with rows (tsd tabl select: ["Department"] 
             as: [[String()]] :distinct sortby: "Department" )
 			(for row in rows do
-                (with recs (tsd-query tabl select: all 
+                (with recs (tsd tabl select: all 
             as: [[String(), String(), Int(), String()]]
     satisfying: (lambda Department String() (eq Department (get row 0))) 
                     sortby: "Salary" :desc limit: N)

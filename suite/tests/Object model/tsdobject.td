@@ -33,7 +33,7 @@ import: "Outer",
 objFile: "../../res/objfile.tsd",
 ss: StringStream(),
 i: Int(0),
-check: "[abc, cde] inn1 5",
+check: "[\"abc\", \"cde\"] inn1 5",
 
 outName: "out1",
 outObj: Outer(),

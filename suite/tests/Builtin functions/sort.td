@@ -11,7 +11,7 @@ MainModule: {
     vint: [43, 25, 127, 0, -43],
     vstr : ["ca", "ab", "aa", "Aa", "aBa", "aba", "bb", "bab", "BC", "Caa" ],
     ss: StringStream(),
-    check: "[-43, 0, 25, 43, 127] [127, 43, 25, 0, -43] [Aa, BC, Caa, aBa, aa, ab, aba, bab, bb, ca] [ca, bb, bab, aba, ab, aa, aBa, Caa, BC, Aa] [aa, Aa, ab, aba, aBa, bab, bb, BC, ca, Caa] [Caa, ca, BC, bb, bab, aba, aBa, ab, aa, Aa]",
+    check: "[-43, 0, 25, 43, 127] [127, 43, 25, 0, -43] [\"Aa\", \"BC\", \"Caa\", \"aBa\", \"aa\", \"ab\", \"aba\", \"bab\", \"bb\", \"ca\"] [\"ca\", \"bb\", \"bab\", \"aba\", \"ab\", \"aa\", \"aBa\", \"Caa\", \"BC\", \"Aa\"] [\"aa\", \"Aa\", \"ab\", \"aba\", \"aBa\", \"bab\", \"bb\", \"BC\", \"ca\", \"Caa\"] [\"Caa\", \"ca\", \"BC\", \"bb\", \"bab\", \"aba\", \"aBa\", \"ab\", \"aa\", \"Aa\"]",
     succ: false,
     
     _start: (λ 

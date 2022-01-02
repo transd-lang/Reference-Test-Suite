@@ -52,7 +52,7 @@ Record : typealias(Tuple<Int DateTime Double>()),
         (with vizs Vector<Record>() 
             (load-table vizs tbl1 :mixedTypes fieldSep: "," rowSep: "\n" )
             (for viz in vizs do
-                (tsd-query base 
+                (tsd base 
                     :update set:
                 (lambda PATIENT_ID Int() VISIT_DATE DateTime() 
                         SCORE Double() SCORE_AVG Double() NUM_VISITS Int()
@@ -64,7 +64,7 @@ Record : typealias(Tuple<Int DateTime Double>()),
             ))
         
         (with cols ["PATIENT_ID","LASTNAME","VISIT_DATE","SCORE","SCORE_AVG"]
-        (with recs (tsd-query base select: cols 
+        (with recs (tsd base select: cols 
                 as: [[Int(), String(), DateTime(), Double(), Double()]]
                 satisfying: (lambda PATIENT_ID Int() true)
                 sortby: "PATIENT_ID"

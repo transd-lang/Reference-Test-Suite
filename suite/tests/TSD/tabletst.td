@@ -8,23 +8,23 @@ Require : { searchDirs: ["../.."], packages: ["tests"] }
 MainModule: {
     import: "tests",
     ss: StringStream(),
-    check: "UT[4, Be, Beryllium]
-UT[5, B, Boron]
-UT[2, He, Helium]
-UT[1, H, Hydrogen]
-UT[3, Li, Lithium]
+    check: "[4, \"Be\", \"Beryllium\"]
+[5, \"B\", \"Boron\"]
+[2, \"He\", \"Helium\"]
+[1, \"H\", \"Hydrogen\"]
+[3, \"Li\", \"Lithium\"]
 -----
-UT[1, H, Hydrogen]
-UT[2, He, Helium]
-UT[7, N, Nitrogen]
-UT[8, O, Oxygen]
-UT[9, F, Fluorine]
-UT[10, Ne, Neon]
-UT[17, Cl, Chlorine]
-UT[18, Ar, Argon]
-UT[36, Kr, Krypton]
-UT[54, Xe, Xenon]
-UT[86, Rn, Radon]
+[1, \"H\", \"Hydrogen\"]
+[2, \"He\", \"Helium\"]
+[7, \"N\", \"Nitrogen\"]
+[8, \"O\", \"Oxygen\"]
+[9, \"F\", \"Fluorine\"]
+[10, \"Ne\", \"Neon\"]
+[17, \"Cl\", \"Chlorine\"]
+[18, \"Ar\", \"Argon\"]
+[36, \"Kr\", \"Krypton\"]
+[54, \"Xe\", \"Xenon\"]
+[86, \"Rn\", \"Radon\"]
 ",
     tabfile: "../../res/db/periodic_table.csv",
     tabstr: "",
@@ -41,7 +41,7 @@ UT[86, Rn, Radon]
             (build-index tabl "Atomic number")
             (build-index tabl "Phase at r.t.")
 
-            (with rows (tsd-query tabl 
+            (with rows (tsd tabl 
                 select: ["Atomic number","Symbol","Name"]
                 as: [[Int(),String(),String()]]
                 where: "\"Atomic number\" < 6"
@@ -49,7 +49,7 @@ UT[86, Rn, Radon]
                 (for row in rows do (lout to: ss row)))
     (lout to: ss "-----")
 
-            (with rows (tsd-query tabl 
+            (with rows (tsd tabl 
                 select: ["Atomic number","Symbol","Name"]
                 as: [[Int(),String(),String()]]
                 where: "\"Phase at r.t.\" == \"gas\""

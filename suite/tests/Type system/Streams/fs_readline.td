@@ -36,7 +36,7 @@ MainModule : {
 ABC
 def
 ghi
-[ABC, def, ghi]",
+[\"ABC\", \"def\", \"ghi\"]",
 
 	_start: (λ 
     (with dir (substr @sourceFile from: 0 to: after: last: "/")
