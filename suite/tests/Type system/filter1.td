@@ -13,7 +13,7 @@ MainModule: {
     succ: false,
     
     _start: (λ 
-        (with sum 0 d 0 f Filter( Seq( 1 300 ) apply: (lambda
+        (with sum 0 d 0 f Filter( Seq( 1 300 ) apply: (lambda 
                 (= sum 1)
                 (for i in Range(2 (to-Int (sqrt @it))) do 
                     (if (not (mod @it i)) 

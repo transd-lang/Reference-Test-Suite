@@ -18,7 +18,6 @@ private module MainModule: {
     import: "Quad",
     import: "tests",
     check: "x: 5.5 mem1: 39",
-    succ: false,
 
     _start: (λ  
         (with quad Quad( expVar ) n 0
@@ -27,7 +26,6 @@ private module MainModule: {
         (processRes "import" (str ss) check)
     )
 }
-
 
 class Quad: {
     import: "Export::ss",

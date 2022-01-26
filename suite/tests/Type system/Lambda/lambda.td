@@ -4,7 +4,7 @@
 */
 #lang transd
 
-Require : { searchDirs: ["../.."], packages: ["tests"] }
+Require : { searchDirs: ["../../.."], packages: ["tests"] }
 
 
 
@@ -12,7 +12,7 @@ Require : { searchDirs: ["../.."], packages: ["tests"] }
 MainModule: {
 import: "tests",
 ss: StringStream(),
-check: "Hello, Lambda! 64 7 10 5 Hello, World!",
+check: "Hello, Lambda! 64 [\"A\", \"b\", \"C\", \"d\"] 7 10 5 Hello, World!",
 
 lm: Lambda<String Null>(λ s String() (textout to: ss "Hello, " s "! ") ),
 lm1: Lambda<Int String>(),
@@ -23,6 +23,12 @@ func:(λ lam Lambda<Int Int>()
 _start: (λ 
         (exec lm "Lambda")
         (func (λ i Int() -> Int() (* i i)))
+
+        // Anonymous lambda
+        (with v ["C","b","A","d" ] 
+            (textout to: ss (sort v (lambda l String() r String() -> Bool()
+                     (ret (less (toupper l) (toupper r))))) " ") 
+        )
 
         (with lam Lambda<Int Null>()
             (rebind lam (λ i Int() -> Null() (textout to: ss (+ i 2) " ")))
