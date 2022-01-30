@@ -11,26 +11,31 @@ Require : { searchDirs: ["../../.."], packages: ["tests"] }
 MainModule: {
 import: "tests",
 ss: StringStream(),
-check: "5 5 5 25 32",
+check: "5 5 5 25 25 137",
 
+Lnn: typealias(Lambda<Null Null>()),
+Lii: typealias(Lambda<Int Int>()),
 var1: 5,
 
-// lambda captures var1
-la: Lambda<Null Null>(λ [[var1]] (textout to: ss var1 " ") ),
+
+// basic capturing: lambda captures 'var1' field
+la: Lnn(λ [[var1]] (textout to: ss var1 " ") ),
 
 // non-capturing lambda
-la1: Lambda<Null Null>(λ (textout to: ss var1 " ") ),
+la1: Lnn(λ (textout to: ss var1 " ") ),
 
-// function returns a lambda that captures par1
-makeclos: (λ par1 Int()
-    (with clos Lambda<Int Int>(λ [[par1]] i Int() (ret (+ i par1)))
-        (ret clos)
-    )
-),
+// this lambda is captured into 'la3'
+la2: Lii(λ i Int() (ret (+ i 20))),
+
+// lambda captures 'la2'
+la3: Lii(λ [[la2]] (ret (exec la2 5))),
+
+// lambda with parameters captures 'la2'
+la4: Lii(λ [[la2]] i Int() (ret (exec la2 (+ i 100)))),
 
 _start: (λ
 
-  // -- Basic capturing --
+  // -- Capturing a data member of the same module --
 
     (exec la)
     (exec la1)
@@ -38,12 +43,14 @@ _start: (λ
     (exec la)   // capturing lambda prints the original value
     (exec la1)  // non-capturing lambda prints the changed var1
 
-  // -- Closures --
+  // -- Capturing a lambda
 
-    // make a closure with 25 as captured value
-    (with clos (makeclos 25)
-        (textout to: ss (exec clos 7)) // prints 32
-    )
+    // 'la2' is rebound to another lambda object
+    (rebind la2 Lambda<Int Int>(λ i Int() (ret (- i 30))))
+
+    // 'la3' and 'la4' keep the original 'la2' lambda object
+    (textout to: ss (exec la3) " ")
+    (textout to: ss (exec la4 17))
 
     (processRes "capture" (str ss) check)
 )

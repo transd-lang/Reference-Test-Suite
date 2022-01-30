@@ -34,6 +34,7 @@ RunTests : {
     patt:  ".*\\.td",
     cnt: 0,
     d: "",
+    modname: "MainModule",
     _start: (λ 
         (textout "Tests started: \n")
         (if (> @numArgs 1) (set patt (get @progArgs 1)) (textout "patt: " patt "\n"))
@@ -46,20 +47,48 @@ RunTests : {
             (for f in (files dir) do
                 (if (match f patt)
                     (load-file f)
-                    (with modname "MainModule"
-                        (import-module modname)
-                        (if verbose (textout " Testing " 
-                            width: 50 fill: "." :left                    
-                            (substr f from: after: "suite/tests/") ))
-                        (if (not (fst (eval String(modname "::_start"))))
-                            (textout modname " FAILED!\n")
-                            (+= failtests 1)
-                        )
-                        (unload-file-modules f)
-            )))
+                    (import-module modname)
+                    (if verbose (textout " Testing " 
+                        width: 50 fill: "." :left                    
+                        (substr f from: after: "suite/tests/") ))
+                    (if (not (fst (eval String(modname "::_start"))))
+                        (textout modname " FAILED!\n")
+                        (+= failtests 1)
+                    )
+                    (unload-file-modules f)
+            ))
             (+= cnt 1)
         )
         (textout "Successful tests: " oktests "\n")
         (textout "Failed tests: " failtests "\n")
     )
 }
+
+/*
+    Transd code example.
+    --------------------
+
+This code can serve as an example of traversing a directory tree and working with
+files. The driver program recursively lists the contents of subdirectories and
+selects Transd source files based on file name pattern. For each selected file
+it performs the following:
+
+  1. Loads this file's contents into the program's assembly;
+  2. Imports the "MainModule" module into program's namespace;
+  3. Evaluates the module's "_start" function;
+  4. Checks the result and reports if needed;
+  5. Unloads the file and the module from program's assembly.
+
+Notes. 
+
+Instead of loading the test file into program's namespace we could just run it with
+'(run-file f)' function and check the STD output. We load it, instead, for richer or 
+simpler communication via shared data structures in the common namespace.
+Via STD output we would either return just OK or FAIL, or, for more informative
+output, we would need first encode it in the test file, and then decode in the driver.
+
+By loading the file, we enable the test case to communicate with the driver directly via
+shared variables in the "tests" module. Currently, it's only one 'oktests' variable,
+but in the future this may change.
+
+*/
