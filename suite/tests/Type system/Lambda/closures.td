@@ -12,6 +12,7 @@ import: "tests",
 ss: StringStream(),
 check: "32 107 105",
 
+// make an alias for a long type name
 Lii: typealias(Lambda<Int Int>()),
 
 

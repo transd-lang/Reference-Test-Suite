@@ -13,6 +13,7 @@ import: "tests",
 ss: StringStream(),
 check: "120",
 
+// make an alias for a long type name
 Lii: typealias(Lambda<Int Int>()),
 
 b: Lii(),
@@ -32,3 +33,8 @@ _start: (λ
     (processRes "recursive" (str ss) check)
 )
 }
+
+/*
+    This code emulates recursive computation of factorial with the
+    help of closures.
+*/

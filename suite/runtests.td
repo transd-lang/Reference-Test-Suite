@@ -1,4 +1,4 @@
-/* This file is a part of Tourbillon compiler test suite.
+/* This file is a part of Transd reference test suite.
  
    The program in this file is a driver of the testing process.
    It iterates over test files in subdirectories and successively

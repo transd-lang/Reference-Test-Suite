@@ -13,10 +13,13 @@ import: "tests",
 ss: StringStream(),
 check: "5 5 5 25 25 137",
 
+// Type aliases for shortening type names
 Lnn: typealias(Lambda<Null Null>()),
 Lii: typealias(Lambda<Int Int>()),
-var1: 5,
 
+// Environment variable (module field) that
+// will be captured in lambda
+var1: 5,
 
 // basic capturing: lambda captures 'var1' field
 la: Lnn(λ [[var1]] (textout to: ss var1 " ") ),
@@ -24,13 +27,13 @@ la: Lnn(λ [[var1]] (textout to: ss var1 " ") ),
 // non-capturing lambda
 la1: Lnn(λ (textout to: ss var1 " ") ),
 
-// this lambda is captured into 'la3'
+// this lambda is captured by 'la3' lambda
 la2: Lii(λ i Int() (ret (+ i 20))),
 
 // lambda captures 'la2'
 la3: Lii(λ [[la2]] (ret (exec la2 5))),
 
-// lambda with parameters captures 'la2'
+// a lambda with parameters captures 'la2'
 la4: Lii(λ [[la2]] i Int() (ret (exec la2 (+ i 100)))),
 
 _start: (λ
