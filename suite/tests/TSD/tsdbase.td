@@ -1,4 +1,4 @@
-/*This file is a part of Tourbillon compiler test suit.
+/*This file is a part of Transd reference test suit.
 
   TSDBase operations (Rosetta task "Top-rank per group").
   Testing building database, creating index, table manipulations 

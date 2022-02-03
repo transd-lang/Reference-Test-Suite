@@ -1,4 +1,4 @@
-/*This file is a part of Tourbillon compiler test suit.
+/*This file is a part of Transd reference test suit.
 
   CHECK: compound type function parameters.*/
 #lang transd

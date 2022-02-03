@@ -1,4 +1,4 @@
-/* This file is a part of Tourbillon compiler test suite.
+/* This file is a part of Transd reference test suite.
  
    The module 'tests' contains shared variables used by modules of the suite.
  */

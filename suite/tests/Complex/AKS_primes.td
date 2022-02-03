@@ -1,4 +1,4 @@
-/*This file is a part of Tourbillon compiler test suit.
+/*This file is a part of Transd reference test suit.
 
   Rosetta task "AKS test for primes" :
   http://rosettacode.org/wiki/AKS_test_for_primes#Transd
