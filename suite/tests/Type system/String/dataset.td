@@ -20,8 +20,8 @@ MainModule: {
     v: [1234, 90765432],
     
     _start: (lambda 
-    (tsd v reduce: ["(to-String col1)"] using: (λ s String() 
-            (with n 0 (tsd s reduce: ["(to-Int col1)"] using: 
+    (tql v reduce: ["(to-String col1)"] using: (λ s String() 
+            (with n 0 (tql s reduce: ["(to-Int col1)"] using: 
             (λ i Int() (+= n i))) (lout to: ss n)))
     )
 

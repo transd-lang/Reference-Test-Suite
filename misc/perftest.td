@@ -19,7 +19,7 @@
 
 
 MainModule: {
-    tabfile: "/mnt/dnl/100000-Records.csv",
+    tabfile: "/mnt/vault/dnl/100000-Records.csv",
     tabstr: "",
     dt: DateTime(),
 
@@ -41,7 +41,7 @@ MainModule: {
             (lout "Perfoming query...")
             (set-now dt)
 
-            (with rows (tsd tabl 
+            (with rows (tql tabl 
                     select: ["Name Prefix", "First Name", "Last Name",
                              "Age in Company (Years)", "Salary"]
                     as: [[String(),String(),String(),Double(),Int()]]

@@ -11,7 +11,7 @@ MainModule: {
     import: "tests",
     ss: StringStream(),
     check: "[5, 4, 3, 2, 1, 0, -1, -2, -3] [4, 3, 2, 1, 0, -1, -2] 
-false false false false",
+false false false [4, 3, 2, 1, 0, -1, -2] true",
     emptvint: Vector<Int>(),
     vint: [-3,-2,-1,0,1,2,3,4,5],
     const cvint: [-3,-2,-1,0,1,2,3,4,5],

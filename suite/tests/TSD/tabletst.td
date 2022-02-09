@@ -41,7 +41,7 @@ MainModule: {
             (build-index tabl "Atomic number")
             (build-index tabl "Phase at r.t.")
 
-            (with rows (tsd tabl 
+            (with rows (tql tabl 
                 select: ["Atomic number","Symbol","Name"]
                 as: [[Int(),String(),String()]]
                 where: "\"Atomic number\" < 6"
@@ -49,7 +49,7 @@ MainModule: {
                 (for row in rows do (lout to: ss row)))
     (lout to: ss "-----")
 
-            (with rows (tsd tabl 
+            (with rows (tql tabl 
                 select: ["Atomic number","Symbol","Name"]
                 as: [[Int(),String(),String()]]
                 where: "\"Phase at r.t.\" == \"gas\""

@@ -42,10 +42,10 @@ Timothy Grove,	E16398,29900,D190`),
 	_start: (λ (with tabl Table()
 		(load-table tabl tbl :firstRowColNames)
         (build-index tabl "Department")
-		(with rows (tsd tabl select: ["Department"] 
+		(with rows (tql tabl select: ["Department"] 
             as: [[String()]] :distinct sortby: "Department" )
 			(for row in rows do
-                (with recs (tsd tabl select: all 
+                (with recs (tql tabl select: all 
             as: [[String(), String(), Int(), String()]]
     satisfying: (lambda Department String() (eq Department (get row 0))) 
                     sortby: "Salary" :desc limit: N)

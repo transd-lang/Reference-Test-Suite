@@ -18,13 +18,13 @@ MainModule: {
     n: 0,
     
     _start: (λ 
-    (lout to: ss (tsd v :select 
-                    satisfying: (λ s String() (starts-with s "a"))))
+    (lout to: ss (tql v :select 
+                    satisfying: (λ col1 String() (starts-with col1 "a"))))
 
-    (tsd v :update set: (λ s String() (reverse s)))
+    (tql v :update set: (λ s String() (reverse s)))
     (lout to: ss v)
 
-    (tsd v reduce: ["(size col1)"] using: (λ i Int() (+= n i)))
+    (tql v reduce: ["(size col1)"] using: (λ i Int() (+= n i)))
     (textout to: ss n)
 
         (processRes "vector_dataset" (str ss) check)
