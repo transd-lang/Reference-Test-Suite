@@ -1,0 +1,12 @@
+
+
+"inn1": {
+  class: "Inner",
+  vec: ["abc", "cde"]
+}
+
+
+"out1": {
+  class: "Outer",
+  innName: "inn1"
+}
