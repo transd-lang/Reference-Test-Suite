@@ -23,7 +23,7 @@ import: "tests",
 ss: StringStream(),
 check: "do op: 7",
 
-     op: Lambda<Int Int>(λ i Int() (textout to: ss "do op: ") (ret (+ i 5))),
+     op: Lambda<Int Int>(λ i Int(0) (textout to: ss "do op: ") (ret (+ i 5))),
 
 	_start: (λ 
         (with sf StepFunc( op )

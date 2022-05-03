@@ -10,17 +10,21 @@ interface IFace1: {
 	IMeth1: (λ)
 }
 
+public module Shared: {
+    ss: StringStream()
+}
+
 class ClassA : {
-    import: "MainModule",
+    import: "Shared",
     @impl: IFace1,
     IMeth1: (λ (textout to: ss "(ClassA::IMeth1)"))
 }
 
-public module MainModule : 
+MainModule : 
 {
 	import: "ClassA",
+    import: "Shared",
     import: "tests",
-    ss: StringStream(),
     check: "(MainModule::func1):
 (ClassA::IMeth1)",
 	objA: ClassA(),

@@ -1,6 +1,8 @@
 /*This file is a part of Transd reference test suit.
 
   Acessing fields in a dynamic subject with 'getf' method.
+
+  Spec: NR/spec_17_7
 */
 #lang transd
 

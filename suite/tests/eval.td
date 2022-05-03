@@ -23,6 +23,6 @@ MainModule : {
         (with code (substr str from: after: last: "\\" to: last: ".")
             (eval String(code "1))")))
 
-        (processRes "eval" check (str ss))
+        (processRes "eval" (str ss) check)
     )
 }

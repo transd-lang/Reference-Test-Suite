@@ -1,0 +1,12 @@
+"circle1" : {
+class: "Circle",
+center: [1.0, 2.0],
+color: [3,4,5]
+}
+
+"diag1" : {
+class: "Diagram",
+shape: "circle1"
+}
+
+

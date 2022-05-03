@@ -1,6 +1,8 @@
 /*This file is a part of Transd reference test suit.
 
   A test of @to-String special object's method.
+
+  Spec: NR/spec_16
 */
 #lang transd
 

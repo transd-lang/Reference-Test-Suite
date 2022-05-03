@@ -1,6 +1,8 @@
 /*This file is a part of Transd reference test suit.
 
   A combined test of class- and module-related features.
+
+  Spec: NR/spec_5.td
 */
 #lang transd
 

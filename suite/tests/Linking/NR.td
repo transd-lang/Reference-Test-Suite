@@ -6,6 +6,9 @@
 
   nam1:mem_a | FTfunc1:B | FTFunc:A | contA
   nam1:mem_a | BIMeth | FTFunc1:B | FTFunc:A | contA
+
+  Spec:
+    NR/spec_3
 */
 #lang transd
 
