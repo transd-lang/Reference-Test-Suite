@@ -15,7 +15,8 @@ a \"abcdеёжз\" b 8 -1 зжёеdcba ёеdc false
 #$()123@ABCabcАБВабв $)123@AaАБаб false 
 ae false false
 a b cd а б вг A b Cd А б Вг A B CD А Б ВГ
-qqq 3 21 3 19",
+qqq 3 21 3 19
+aaa baaa aaaA aaaaaa",
     const s: "abcdеёжз",
 
     ctor: (λ const s String()
@@ -84,6 +85,12 @@ qqq 3 21 3 19",
             (textout  to: ss " " (size q))
             (strip (= q s) "\t\r " " ")
             (textout to: ss " " (size q))
+        )
+        (lout to: ss "")
+
+        // (replace)
+        (with s "AAA bAAA AAAA AAAAAA" 
+            (textout to: ss (replace s "AAA" "aaa"))
         )
 
         (processRes "string" (str ss) check)
