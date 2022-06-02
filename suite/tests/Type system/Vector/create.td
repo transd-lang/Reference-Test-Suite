@@ -1,4 +1,4 @@
-/*This file is a part of Transd reference test suit.
+/*This file is part of Transd reference test suit.
 
   Vector operations.
   Testing various methods of vector construction and

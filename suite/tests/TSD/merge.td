@@ -64,9 +64,9 @@ Record : typealias(Tuple<Int DateTime Double>()),
             ))
         
         (with cols ["PATIENT_ID","LASTNAME","VISIT_DATE","SCORE","SCORE_AVG"]
-        (with recs (tql base select: cols 
+        (with a Int() recs (tql base select: cols 
                 as: [[Int(), String(), DateTime(), Double(), Double()]]
-                satisfying: (lambda PATIENT_ID Int() true)
+                satisfying: (lambda PATIENT_ID Int() (ret true))
                 sortby: "PATIENT_ID"
                 )
                 (for i in cols do (textout to: ss width: 10 i "|")) (lout to: ss "")
