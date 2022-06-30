@@ -25,7 +25,7 @@ class Outer : {
 //(lout "innName: " innName)
 //(lout "objs: " objs)
 //(lout "get: " (get (snd (get objs innName)) 0))
-        (load-from-object innObj (get (snd (get objs innName)) 0))
+        (load-from-object innObj (get (get objs innName) 0))
 //(lout (diag innObj))
 //(textout "Outer::prep(): " (diag innObj))
         (prep innObj objs)
@@ -54,7 +54,7 @@ _start: (λ
                 (read-tsd-file objFile) 
                 (λ ob Object() -> String() 
                     (get-String ob "name"))))
-    (load-from-object outObj (get (snd (get objs outName)) 0))
+    (load-from-object outObj (get (get objs outName) 0))
 
 //(textout (getf outObj "innName"))
     (prep outObj objs)

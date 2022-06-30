@@ -43,7 +43,7 @@ true false 3
             (textout to: ss (eq pos (end v)) " "
                (fst (eval "(get-el pos)")) " ")
             (= pos (find-adjacent par))
-            (textout to: ss (get-el pos))
+            (textout to: ss (get-val pos))
     )),
     
     tst-reverse: (λ const cont Vector<Int>()

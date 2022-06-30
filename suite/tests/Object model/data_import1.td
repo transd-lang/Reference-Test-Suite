@@ -40,7 +40,7 @@ class Diagram : {
     shapeObj: Circle(),
     create: (λ objs ObjIndex()
 //(lout "objs: " objs)
-        (load-from-object shapeObj (get (snd (get objs shape)) 0))
+        (load-from-object shapeObj (get (get objs shape) 0))
         (create shapeObj objs)),
     draw: (λ ss StringStream() (draw shapeObj ss))
 }
@@ -66,7 +66,7 @@ _start: (λ
                 (read-tsd-file objFile) 
                 (λ ob Object() -> String() 
                     (get-String ob "name"))))
-    (load-from-object diagObj (get (snd (get objs diagName)) 0))
+    (load-from-object diagObj (get (get objs diagName) 0))
 //(lout "objs: " objs)
     (create diagObj objs)
     (draw diagObj ss)

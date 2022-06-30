@@ -27,7 +27,7 @@ MainModule: {
         //-- (max-element), (max-element-idx)
         (with v [1, 45, 7, 274, -2, 34] v1 Vector<Int>()
             // non-empty container
-            (textout to: ss (get-el (max-element v)) " ")
+            (textout to: ss (get-val (max-element v)) " ")
             (textout to: ss (max-element-idx v) " ")
 
             // empty container

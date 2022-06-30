@@ -16,7 +16,8 @@ a \"abcdеёжз\" b 8 -1 зжёеdcba ёеdc false
 ae false false
 a b cd а б вг A b Cd А б Вг A B CD А Б ВГ
 qqq 3 21 3 19
-aaa baaa aaaA aaaaaa",
+aaa baaa aaaA aaaaaa
+1 1",
     const s: "abcdеёжз",
 
     ctor: (λ const s String()
@@ -34,6 +35,19 @@ aaa baaa aaaA aaaaaa",
 
     tst-sort: (λ const cont String()
         (textout to: ss (sort (cp cont)) " ")
+    ),
+
+    tst-setel: (λ locals: ss StringStream() s "abc"
+        (textout to: ss (set-el s 1 "B") " ")
+        (textout to: ss s " ")
+        (textout to: ss (set-el (cp s) 0 "Q") " ")
+        (textout to: ss s)
+        (if (eq (str ss) "aBc aBc QBc aBc") (ret "1") else (ret (str ss)))
+    ),
+
+    tst-sub: (λ locals: ss StringStream() s "abc def ghi jkl"
+        (textout to: ss (sub s 12) " " (sub s 4 7))
+        (if (eq (str ss) "jkl def") (ret "1") else (ret (str ss)))
     ),
 
     _start: (λ 
@@ -92,6 +106,14 @@ aaa baaa aaaA aaaaaa",
         (with s "AAA bAAA AAAA AAAAAA" 
             (textout to: ss (replace s "AAA" "aaa"))
         )
+        (lout to: ss "")
+
+        // (sub)
+        (textout to: ss (tst-sub))
+        (textout to: ss " ")
+
+        // (set-el)
+        (textout to: ss (tst-setel))
 
         (processRes "string" (str ss) check)
     )

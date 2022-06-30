@@ -42,7 +42,8 @@ _start: (λ
                 (read-tsd-file objFile) 
                 (λ ob Object() -> String() 
                     (get-String ob "name"))))
-    (load-from-object squareObj (get (snd (get objs squareName)) 0))
+    (load-from-object squareObj (get (get objs squareName) 0))
+
     (draw squareObj ss)
 
     (processRes "data_import" (str ss) check)

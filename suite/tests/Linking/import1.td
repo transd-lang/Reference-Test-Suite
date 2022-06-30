@@ -34,7 +34,7 @@ public module Util: {
 
     mem1: Int(),
 
-    @init: (λ (set mem1 100)),
+    @init: (λ locals: i 100 (set mem1 i)),
 
     shade: (λ x Double() 
         (textout to: ss "x: " (+ x 2.5) " mem1: " (+ mem1 Export::expVar1) )
