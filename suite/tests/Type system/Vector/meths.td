@@ -1,4 +1,5 @@
 /*This file is a part of Transd reference test suit.
+ Last edited:   Sun, 19 Jun 2022 02:59
 
   Testing the Vector methods.
 */
@@ -15,7 +16,9 @@ MainModule: {
 true false 3
 [6, 3, 4, 9, 2, 7, 0, 1, 8, 5] [4, 9, 2, 7, 0, 1] false true 
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] [0, 1, 2, 4, 7, 9] false true 
-1 4 false false",
+1 4 false false
+1",
+
     const v: [5,8,1,0,7,2,9,4,3,6],
     v1: [12,13,14,15,16,17],
 
@@ -54,6 +57,12 @@ true false 3
         (textout to: ss (sort (cp cont)) " ")
     ),
 
+    tst-mul: (λ locals: ss StringStream() v [1,2,3]
+        (textout to: ss (mul v 3))
+        (if (eq (str ss) "[1, 2, 3, 1, 2, 3, 1, 2, 3]") 
+            (ret "1") else (ret (str ss)))
+    ),
+
     _start: (λ 
         //-- (size)
         (textout to: ss (size v) " ")
@@ -88,10 +97,16 @@ true false 3
         (textout to: ss (fst (eval "(sort Range(in: v1 2 -2))")) " ")
         (lout to: ss "")
         
+        //-- (front) (back)
         (with v [1,2,3,4]
 	        (textout to: ss (front v) " " (back v) (clear v) " "
                 (fst (eval "(front v)")) " " (fst (eval "(back v)")))
         )
+        (lout to: ss "")
+
+        //-- (mul)
+        (textout to: ss (tst-mul))
+
         (processRes "vector:meths" (str ss) check)
     )
 }
