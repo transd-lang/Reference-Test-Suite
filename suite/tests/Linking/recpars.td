@@ -1,4 +1,4 @@
-/*This file is a part of Transd reference test suit.
+/* This file is a part of Transd reference test suit.
 
   CHECK: recursive evaluation of function parameters and local variables.*/
 #lang transd

@@ -75,6 +75,6 @@ Record : typealias(Tuple<Int DateTime Double>()),
                     (lout to: ss ""))
 		)))
 
-    (processRes "tsdbase" (str ss) check)
+    (processRes "merge" (str ss) check)
 )
 }

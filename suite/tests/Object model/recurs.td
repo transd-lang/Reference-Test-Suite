@@ -1,7 +1,7 @@
 /*** This file is part of Transd reference test suit.
  File:          recurs.td
  Created:       Tue, 14 Jun 2022 22:40
- Last edited:   Пт, 17 июн 2022 04:12
+ Last edited:   Tue, 05 Jul 2022 15:13
  Abstract:      Testing a class having a method returning a new object
                 of that class.
 */
@@ -12,7 +12,7 @@ Require : { searchDirs: ["../.."], packages: ["tests"] }
 class ClA: {
     x: Int(0),
 
-    @init: (λ i Int() (= x i)),
+    @init: (λ i Int(0) (= x i)),
 
     @to-String: (λ ss StringStream() 
         (textout to: ss "x: " x)),

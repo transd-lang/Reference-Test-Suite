@@ -1,7 +1,7 @@
 /*** This file is part of Transd reference test suit.
 	File:          meths.td
 	Created:       Пт, 17 июн 2022 04:10
-	Last edited:   Сб, 18 июн 2022 03:58
+	Last edited:   Tue, 05 Jul 2022 15:58
 
 	Abstract: Call to the same object's method using implicit
     call subject.

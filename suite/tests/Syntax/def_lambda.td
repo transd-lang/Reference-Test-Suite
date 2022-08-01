@@ -8,13 +8,14 @@ Require : { searchDirs: ["../.."], packages: ["tests"] }
 
 MainModule : {
     import: "tests",
-    check: "5 1 6 7 6 true true",
+    //check: "5 1 6 7 6 true true",
+    check: "5 6 7 6 true true",
     ss: StringStream(),
     a: 1,
     b: 2,
     func1: (λ ),
     func2: (λ 5),
-    func3: (λ a),
+    //func3: (λ a),
     func4: (λ p Int()),
     func5: (λ p 5 6),
     func6: (λ p 5 (ret p)),
@@ -23,7 +24,7 @@ MainModule : {
 	_start: (λ 
         (textout to: ss (func1))
         (textout to: ss (func2) " ")
-        (textout to: ss (func3) " ")
+        //(textout to: ss (func3) " ")
         (textout to: ss (func4 5))
         (textout to: ss (func5) " ")
         (textout to: ss (func6 7) " ")

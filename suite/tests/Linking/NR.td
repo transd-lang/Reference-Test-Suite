@@ -40,23 +40,24 @@ class ClA : {
 MainModule : {
     import: "tests",
     import: "mod1",
-    check: "5 1 5 5 ClA::func2():10",
+    //check: "5 1 5 5 ClA::func2():10",
+    check: "5 5 5 ClA::func2():10",
     ss: StringStream(),
     field1: 1,
 
     
     func1: (λ 5),
-    func2: (λ field1),
+    //func2: (λ field1),
     func3: (λ par Int() (ret par)),
     func4: (λ par Int() (func3 par)),
 
     test1: (λ (textout to: ss (func1) " ")),
-    test2: (λ (textout to: ss (func2) " ")),
+    //test2: (λ (textout to: ss (func2) " ")),
     test3: (λ (textout to: ss (func3 5) " ")),
     test4: (λ (textout to: ss (func4 5) " ")),
     _start: (λ 
         (test1)
-        (test2)
+        //(test2)
         (test3)
         (test4)
         (textout to: ss (mod1::func1 10))
