@@ -1,7 +1,8 @@
 /***
+ This file is part of the reference test suit of Transd programming language.
  File:          pars.td
  Created:       Sun, 03 Jul 2022 02:42
- Last edited:   Sun, 03 Jul 2022 21:03
+ Last edited:   Tue, 02 Aug 2022 02:48
  Abstract: Initialization of function parameters.
 */
 #lang transd

@@ -1,7 +1,8 @@
-/*** This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
  File:          yield.td
  Created:       Wed, 18 May 2022 10:49
- Last edited:   Wed, 29 Jun 2022 23:06
+ Last edited:   Tue, 02 Aug 2022 02:57
  Abstract:      Test of 'yield' statement.
 */
 #lang transd

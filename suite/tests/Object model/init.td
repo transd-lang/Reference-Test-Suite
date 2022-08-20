@@ -1,7 +1,8 @@
-/*** This file is a part of Transd reference test suit.
+/*** 
+ This file is part of the reference test suit of Transd programming language.
  File:          init.td
  Created:       Tue, 05 Jul 2022 09:21
- Last edited:   Tue, 05 Jul 2022 15:38
+ Last edited:   Wed, 03 Aug 2022 11:33
  Abstract: Test of @init special method.
 
 When a class defines the special method '@init', this method is automatically

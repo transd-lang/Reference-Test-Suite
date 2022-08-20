@@ -1,9 +1,10 @@
-/*** This file is part of Transd reference test suit.
-	File:          aspar.td
-	Created:       Вт, 21 июн 2022 13:57
-	Last edited:   Thu, 30 Jun 2022 06:41
+/***
+ This file is part of the reference test suit of Transd programming language.
+ File:          init.td
+ Created:       Tue, 21 Jun 2022 13:57
+ Last edited:   Sat, 06 Aug 2022 09:54
 
-	Abstract: Passing vector as an argument to functions.
+ Abstract: Series of tests (continued in initN.td files) covering a variety of cases of initializing vectors with data.
 */
 #lang transd
 
@@ -36,15 +37,15 @@ MainModule: {
         (textout to: ss v " ")
     ),
 
-    // arg to FTFunc
+    // passing value initializer to a function
     tst1: (λ (func [1,2,3])),
 
-    // arg to FTMeth
+    // passing value initializer to an object's method
     tst2: (λ locals: ob ClA([3,4,5])
         (meth ob [1,2,3])
     ),
 
-    // arg to @init
+    // passing value initializer to an object's @init method
     tst3: (λ (with ob ClA([3,4,5]))),
 
     _start: (λ 
@@ -52,6 +53,6 @@ MainModule: {
         (tst2)
         (tst3)
 
-        (processRes "aspar" (str ss) check)
+        (processRes "init" (str ss) check)
     )
 }

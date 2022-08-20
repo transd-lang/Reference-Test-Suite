@@ -1,4 +1,10 @@
-/*This file is part of Transd reference test suit.
+/*
+ This file is part of the reference test suit of Transd programming language.
+ File:          create.td
+ Created:       Wed, 03 Aug 2022 11:57
+ Last edited:   Wed, 03 Aug 2022 12:08
+
+ Abstract: Continuation of tests of initializing vectors with data.
 
   Vector operations.
   Testing various methods of vector construction and

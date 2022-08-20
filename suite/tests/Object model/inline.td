@@ -1,7 +1,8 @@
-/*** This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
  File:          inline.td
  Created:       Tue, 14 Jun 2022 13:11
- Last edited:   Вт, 14 июн 2022 14:13
+ Last edited:   Wed, 03 Aug 2022 11:33
  Abstract: Creation of inline objects
 */
 #lang transd
