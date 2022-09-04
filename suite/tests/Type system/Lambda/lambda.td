@@ -1,6 +1,9 @@
-/*This file is a part of Transd reference test suit.
+/*
+ This file is part of the reference test suit of Transd programming language.
+ File:          lambda.td
+ Last edited:   Fri, 26 Aug 2022 22:33
 
-  Test of lambdas.
+ Abstract: Test of lambdas.
 */
 #lang transd
 
@@ -23,7 +26,7 @@ func:(λ lam Lambda<Int Int>()
 
 _start: (λ 
 
-        // Calling a lambda
+        // Calling a lambda with argument
         (exec lm "Lambda")
 
         // Passing an anonymous lambda as parameter

@@ -24,15 +24,17 @@ false false false [4, 3, 2, 1, 0, -1, -2] true",
         (textout to: ss (reverse cont) " ")
     ),
 
-    tst-fail-cvint: (λ const cont Vector<Int>()
+    tst-fail-cvint: (λ const _cont Vector<Int>()
+        //locals: la Lambda<Null Null>(λ [[cont]] (reverse cont))
         // cObj -> vMeth
         // cArg -> vMeth
         // cObj -> vArg
         // cArg -> vArg
-        (textout to: ss :boolalpha (fst (eval "(reverse cont)")) " ")
-        (textout to: ss (fst (eval "(reverse Range(in: cont 1 -1))")) " ")
-        (textout to: ss (fst (eval "(tst-vvint cont)")) " ")
-        (textout to: ss (fst (eval "(tst-vvint Vector<Int>(Range(in: cont 1 -1)))")))
+        (textout to: ss :boolalpha (fst (eval "(reverse _cont)")) " ")
+        (textout to: ss (fst (eval "(reverse Range(in: _cont 1 -1))")) " ")
+        (textout to: ss (fst (eval "(tst-vvint _cont)")) " ")
+        (textout to: ss (fst (eval "(tst-vvint Vector<Int>(Range(in: _cont 1 -1)))")))
+//(tst-vvint Vector<Int>(Range(in: cont 1 -1)))
     ),
     
     
