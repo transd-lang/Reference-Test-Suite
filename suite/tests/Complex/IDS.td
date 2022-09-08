@@ -1,7 +1,8 @@
-/*** This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
  File:          IDS.td
  Created:       Sat, 09 Jul 2022 14:08
- Last edited:   Sat, 09 Jul 2022 21:05
+ Last edited:   Tue, 06 Sep 2022 04:08
  Author:        Albert Berger.
 
  Abstract: A schematic implementation of Iterative Deepening Search

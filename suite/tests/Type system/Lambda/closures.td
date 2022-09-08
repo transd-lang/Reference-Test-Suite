@@ -1,4 +1,7 @@
-/*This file is a part of Transd reference test suit.
+/*
+ This file is part of the reference test suit of Transd programming language.
+ File:          closures.td
+ Last edited:   Tue, 06 Sep 2022 04:07
 
   Closures.
 */
@@ -36,7 +39,7 @@ makeclos1: (λ fn Lii()
 
 // This closure maker is itself a lambda, which receives another
 // lambda as argument, and returns yet another lambda, which captures
-// the second one. This is a prototype to Y-combinator.
+// the argument. (Conceptual prototype to Y-combinator.)
 
 makeclos2: Lambda<Lambda<Int Int> Lambda<Int Int>>(λ fn Lii()
                     (ret (λ [[fn]] v Int() (exec fn v)))),

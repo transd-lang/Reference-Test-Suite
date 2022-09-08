@@ -1,6 +1,9 @@
-/*This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
+ File:          if.td
+ Last edited:   Wed, 07 Sep 2022 13:20
 
-  A test of 'if' form.
+ Abstract:  A basic test of 'if' form.
 */
 #lang transd
 
