@@ -2,7 +2,7 @@
  This file is part of the reference test suit of Transd programming language.
  File:          yield.td
  Created:       Wed, 18 May 2022 10:49
- Last edited:   Tue, 02 Aug 2022 02:57
+ Last edited:   Tue, 13 Sep 2022 18:03
  Abstract:      Test of 'yield' statement.
 */
 #lang transd
@@ -14,21 +14,21 @@ MainModule: {
     ss: StringStream(),
     check: "1 1 1",
 
-	func: Lambda<Null Int>(λ 
+    func: Lambda<Null Int>(λ 
         locals: a 0
         (yield a) (+= a 1)
         (yield a) (+= a 1)
         (yield a)
     ),
 
-	func1: Lambda<Null Int>(λ
+    func1: Lambda<Null Int>(λ
         locals: a 0
         (yield a) (+= a 1)
         (yield a) (+= a 1)
         (ret a)
     ),
 
-	func2: Lambda<Null Int>(λ
+    func2: Lambda<Null Int>(λ
         (for i in Range(2) do
             (yield (to-Int i)))
         (throw :stopIter)

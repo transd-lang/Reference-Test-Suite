@@ -1,7 +1,7 @@
 /*** This file is a part of Transd reference test suit.
  File:          yield1.td
  Created:       Thu, 07 Jul 2022 19:25
- Last edited:   Fri, 08 Jul 2022 01:40
+ Last edited:   Tue, 13 Sep 2022 18:03
 
  Abstract: Yield statement in functions with parameters.
 */
@@ -14,28 +14,28 @@ MainModule: {
     ss: StringStream(),
     check: "1 1 1 1",
 
-	func: Lambda<Int Int>(λ p Int()
+    func: Lambda<Int Int>(λ p Int()
         locals: a 0
         (yield a) (+= a p)
         (yield a) (+= a p)
         (yield a)
     ),
 
-	func1: Lambda<Int Int>(λ p Int()
+    func1: Lambda<Int Int>(λ p Int()
         locals: a 0
         (yield a) (+= a p)
         (yield a) (+= a p)
         (yield a)
     ),
 
-	func2: Lambda<Int Int>(λ p Int()
+    func2: Lambda<Int Int>(λ p Int()
         locals: a 0
         (yield a) (+= a p)
         (yield a) (+= a p)
         (ret a)
     ),
 
-	func3: Lambda<Int Int>(λ p Int()
+    func3: Lambda<Int Int>(λ p Int()
         (for i in Range(5) do
             (yield (+ p i)))
         (throw :stopIter)
