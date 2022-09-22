@@ -1,4 +1,9 @@
-/*This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
+ File:          typealias.td
+ Last edited:   Wed, 14 Sep 2022 22:16
+
+ Abstract: 
 
   'TypeAlias' module and 'typealias' statement.
 

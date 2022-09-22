@@ -1,8 +1,11 @@
-/* This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
+ File:          AKS_primes.td
+ Last edited:   Thu, 22 Sep 2022 00:35
 
-  Rosetta task "AKS test for primes" :
-  http://rosettacode.org/wiki/AKS_test_for_primes#Transd
-
+ Abstract:
+ Rosetta task "AKS test for primes" :
+ http://rosettacode.org/wiki/AKS_test_for_primes#Transd
 */
 #lang transd
 
