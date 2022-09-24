@@ -2,7 +2,7 @@
  This file is part of the reference test suit of Transd programming language.
  File:          init.td
  Created:       Fri, 26 Aug 2022 22:28
- Last edited:   Fri, 26 Aug 2022 22:45
+ Last edited:   Fri, 23 Sep 2022 08:01
 
  Abstract: Series of tests (continued in other init*.td files) for
  testing initializating and using lambda objects in various contexts.
