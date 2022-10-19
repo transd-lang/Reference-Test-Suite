@@ -1,7 +1,7 @@
 /*
  This file is part of the reference test suit of Transd programming language.
  File:          lambda.td
- Last edited:   Fri, 26 Aug 2022 22:33
+ Last edited:   Mon, 26 Sep 2022 04:45
 
  Abstract: Test of lambdas.
 */
