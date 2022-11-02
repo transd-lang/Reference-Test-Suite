@@ -1,7 +1,9 @@
-/*This file is a part of Transd reference test suit.
+/***
+ This file is part of the reference test suit of Transd programming language.
+ File:          substr.td
+ Last edited:   Wed, 02 Nov 2022 09:29
 
-    Test of '(substr)' method.
-
+ Abstract: Test of '(substr)' method.
 */
 #lang transd
 

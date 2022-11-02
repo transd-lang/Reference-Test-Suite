@@ -32,7 +32,7 @@ res/filestest/dir2/file2.ext2
                     (append dirs d1)))
             (for f in (files dir) do
                 (if (match f patt)
-                    (with relname (substr f (rfind f "res"))
+                    (with relname (substr f (index-of f :rev "res"))
                         (textout to: ss relname "\n"))
             ))
             (+= cnt 1)
