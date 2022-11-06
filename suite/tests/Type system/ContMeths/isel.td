@@ -1,10 +1,10 @@
 /***
-    This file is a part of Transd reference test suit.
+ This file is part of the reference test suit of Transd programming language.
 
-	File:          isel.td
-	Created:       Mon, 16 May 2022 10:57
-	Last edited:   Mon, 16 May 2022 11:06
-	Abstract:      Test of 'is-el' container method.
+ File:          isel.td
+ Created:       Mon, 16 May 2022 10:57
+ Last edited:   Sat, 05 Nov 2022 15:10
+ Abstract:      Test of 'is-el' container method.
 */
 #lang transd
 

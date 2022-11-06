@@ -1,7 +1,7 @@
 /***
  File:          init7.td
  Created:       Fri, 23 Sep 2022 08:09
- Last edited:   Sat, 24 Sep 2022 10:08
+ Last edited:   Sun, 06 Nov 2022 16:19
  Abstract: Issue #16: locals initializers in lambda member objects.
 */
 #lang transd
@@ -17,7 +17,7 @@ MainModule: {
 
     la: Lambda<Int Null>(λ i Int() 
         locals: b (* i 5) // <=
-        (or (and (> b 0) (< b 20)) (throw))
+        (or (and (> i 0) (< i 30)) (throw))
         (textout to: ss i " ")
         (if (> b 100) (ret))
         (exec la b)
