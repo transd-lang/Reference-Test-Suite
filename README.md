@@ -33,7 +33,7 @@ Tests started:
  Testing Type system/Vector/create.td...................... OK
  Testing Type system/Vector/matrices.td.................... OK
  Testing Type system/Vector/meths.td....................... OK
-Successful tests: 110
+Successful tests: 111
 Failed tests: 0
 ```
 
